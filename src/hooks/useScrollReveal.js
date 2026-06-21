@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 
-function useScrollReveal() {
+function useScrollReveal(isActive = true) {
   useEffect(() => {
+    if (!isActive) return;
+
     const revealElements = document.querySelectorAll('.reveal, .reveal-zoom-in, .reveal-zoom-out');
     
     const observer = new IntersectionObserver(
@@ -26,7 +28,7 @@ function useScrollReveal() {
     return () => {
       revealElements.forEach((el) => observer.unobserve(el));
     };
-  }, []);
+  }, [isActive]);
 }
 
 export default useScrollReveal;

@@ -41,7 +41,7 @@ function Hero() {
           onClick={(e) => handleScrollTo(e, 'work')}
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
           </svg>
           <span>Scroll to Explore</span>
         </div>

@@ -9,19 +9,23 @@ import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Loader from './components/Loader';
 import useScrollReveal from './hooks/useScrollReveal';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   // Force dark theme and remove light mode toggle
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'dark');
   }, []);
 
-  // Initialize Intersection Observer scroll reveal animations
-  useScrollReveal();
+  // Initialize Intersection Observer scroll reveal animations only after loader finishes
+  useScrollReveal(!loading);
 
   return (
     <div className="app">
+      {loading && <Loader onComplete={() => setLoading(false)} />}
       <Header />
       <main>
         <Hero />
